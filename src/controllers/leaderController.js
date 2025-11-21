@@ -18,17 +18,44 @@ const createLeader = async (req, res, next) => {
     oficio,
     profesion,
     meta_votos,
-    zoneId
+    zoneId,
+    numero_comuna
   } = req.body
 
   try {
-    // Validación: Verificar que la zona exista
-    if (zoneId) {
-      const zone = await Zone.findByPk(zoneId)
+    let finalZoneId = zoneId
+
+    // Logica de autocorrecion de zona
+    if (!finalZoneId && barrio) {
+      // 1. Buscar si existe la zona por nombre (intentando arreglar el error de escritura)
+      let zone = await Zone.findOne({ where: { nombre: barrio } })
+
+      // 2. Si no existe, crear la zona automaticamente
       if (!zone) {
-        return res.status(404).json({ message: 'La Zona especificada no existe' })
+        console.log(`⚠️ Zona no encontrada para "${barrio}". Creando automáticamente...`)
+        zone = await Zone.create({
+          nombre: barrio,
+          municipio: 'Valledupar', // Valor por defecto
+          numero_comuna: numero_comuna || 'SC', // 'SC' significa Sin Comuna
+          meta_votos: meta_votos || 0,
+          managerId: req.user.id // Asignar el usuario actual como gerente
+        })
       }
+
+      finalZoneId = zone.id
     }
+
+    if (!finalZoneId) {
+      return res.status(400).json({ message: 'No se pudo asignar una zona al líder.' })
+    }
+
+    // Validación: Verificar que la zona exista
+    // if (zoneId) {
+    //   const zone = await Zone.findByPk(zoneId)
+    //   if (!zone) {
+    //     return res.status(404).json({ message: 'La Zona especificada no existe' })
+    //   }
+    // }
 
     const leader = await Leader.create({
       cedula,
@@ -41,7 +68,7 @@ const createLeader = async (req, res, next) => {
       oficio,
       profesion,
       meta_votos,
-      zoneId // Vinculación del líder a una zona geográfica
+      zoneId: finalZoneId // usamos la zona corregida o creada
     })
     res.status(201).json(leader)
   } catch (error) {
@@ -97,7 +124,50 @@ const getLeaders = async (req, res, next) => {
   }
 }
 
-module.exports = { createLeader, getLeaders }
+// @desc    Actualizar un Líder
+// @route   PUT /api/v1/leaders/:id
+const updateLeader = async (req, res, next) => {
+  const { id } = req.params
+  const updateData = req.body
+
+  try {
+    const leader = await Leader.findByPk(id)
+    if (!leader) {
+      return res.status(404).json({ message: 'Líder no encontrado' })
+    }
+
+    // Si intenta cambiar la cédula, verificar duplicados
+    if (updateData.cedula && updateData.cedula !== leader.cedula) {
+      const exists = await Leader.findOne({ where: { cedula: updateData.cedula } })
+      if (exists) return res.status(400).json({ message: 'Esa cédula ya pertenece a otro líder' })
+    }
+
+    // Actualizar campos
+    await leader.update(updateData)
+    res.json({ message: 'Líder actualizado correctamente', leader })
+  } catch (error) {
+    next(error)
+  }
+}
+
+// @desc    Eliminar un Líder
+// @route   DELETE /api/v1/leaders/:id
+const deleteLeader = async (req, res, next) => {
+  const { id } = req.params
+  try {
+    const leader = await Leader.findByPk(id)
+    if (!leader) {
+      return res.status(404).json({ message: 'Líder no encontrado' })
+    }
+
+    await leader.destroy()
+    res.json({ message: 'Líder eliminado correctamente' })
+  } catch (error) {
+    next(error) // Probablemente error de llave foránea si tiene votantes
+  }
+}
+
+module.exports = { createLeader, getLeaders, updateLeader, deleteLeader }
 
 // // src/controllers/leaderController.js
 // const Leader = require('../models/leaderModel')
