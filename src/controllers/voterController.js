@@ -25,15 +25,15 @@ const createVoter = async (req, res, next) => {
       nombre,
       cedula,
       telefono,
-      email,
+      email: email === '' ? null : email, // Permitir email nulo
       direccion,
       barrio,
-      fecha_nacimiento,
+      fecha_nacimiento: fecha_nacimiento === '' ? null : fecha_nacimiento,
       oficio,
       notas_iniciales,
       profesion,
       zoneId: zonaId, // Puede venir null si se usa la logica de autoo-crear zona (igual que en lideres)
-      leaderId,
+      leaderId: leaderId || null,
       tipo_voto, // Segmentación: 'duro', 'blando', 'posible'
       estado_fidelizacion: 1, // Inicia con nivel bajo/neutro
       registeredBy: req.user.id // Guardamos qué digitador lo ingresó

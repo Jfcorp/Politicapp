@@ -23,6 +23,7 @@ const Voter = sequelize.define('Voter', {
   },
   email: {
     type: DataTypes.STRING,
+    allowNull: true,
     validate: { isEmail: true }
   },
   fecha_nacimiento: {

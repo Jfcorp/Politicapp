@@ -61,10 +61,10 @@ const createLeader = async (req, res, next) => {
       cedula,
       nombre,
       telefono,
-      email,
+      email: email === '' ? null : email, // Permitir email nulo
       direccion,
       barrio,
-      fecha_nacimiento,
+      fecha_nacimiento: fecha_nacimiento === '' ? null : fecha_nacimiento,
       oficio,
       profesion,
       meta_votos,
@@ -75,6 +75,10 @@ const createLeader = async (req, res, next) => {
     // Manejo de errores de validacion (ej: Cedula duplicada)
     if (error.name === 'SequelizeUniqueConstraintError') {
       return res.status(400).json({ message: 'Ya existe un líder registrado con esa cédula.' })
+    }
+    if (error.name === 'SequelizeValidationError') {
+      // Capturar error específico de email por si acaso
+      return res.status(400).json({ message: 'Formato de datos inválido (revise email o fechas).' })
     }
     next(error)
   }

@@ -22,7 +22,10 @@ const Leader = sequelize.define('Leader', {
   },
   email: {
     type: DataTypes.STRING,
-    validate: { isEmail: true }
+    allowNull: true,
+    validate: {
+      isEmail: true
+    }
   },
   direccion: {
     type: DataTypes.STRING
