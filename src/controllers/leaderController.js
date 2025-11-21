@@ -2,6 +2,7 @@
 const Leader = require('../models/leaderModel')
 const Zone = require('../models/zoneModel')
 const Voter = require('../models/voterModel')
+const { Console } = require('winston/lib/winston/transports')
 
 // @desc    Crear un nuevo Líder (Compromiso)
 // @route   POST /api/v1/leaders
@@ -27,12 +28,12 @@ const createLeader = async (req, res, next) => {
 
     // Logica de autocorrecion de zona
     if (!finalZoneId && barrio) {
+      console.log(`⚠️ Zona no identificada para "${barrio}". Buscando o creando...`)
       // 1. Buscar si existe la zona por nombre (intentando arreglar el error de escritura)
       let zone = await Zone.findOne({ where: { nombre: barrio } })
 
       // 2. Si no existe, crear la zona automaticamente
       if (!zone) {
-        console.log(`⚠️ Zona no encontrada para "${barrio}". Creando automáticamente...`)
         zone = await Zone.create({
           nombre: barrio,
           municipio: 'Valledupar', // Valor por defecto
@@ -40,13 +41,14 @@ const createLeader = async (req, res, next) => {
           meta_votos: meta_votos || 0,
           managerId: req.user.id // Asignar el usuario actual como gerente
         })
+        console.log(`✅ Zona creada automáticamente: "${barrio}" (ID: ${zone.id})`)
       }
 
       finalZoneId = zone.id
     }
 
     if (!finalZoneId) {
-      return res.status(400).json({ message: 'No se pudo asignar una zona al líder.' })
+      return res.status(400).json({ message: 'No se pudo asignar una zona geográfica válida.' })
     }
 
     // Validación: Verificar que la zona exista
