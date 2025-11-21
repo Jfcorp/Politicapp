@@ -1,0 +1,36 @@
+{"level":"error","message":"500 - no existe la columna gerente.first_name - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:10:30"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:15:11"}
+{"level":"error","message":"500 - no existe la columna Zone.meta_votos - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:28:59"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:46:26"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:46:47"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 20:16:10"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 20:25:16"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 20:30:49"}
+{"level":"error","message":"500 - User is associated to Zone using an alias. You must use the 'as' keyword to specify the alias within your include statement. - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:34:16"}
+{"level":"error","message":"500 - User is associated to Zone using an alias. You must use the 'as' keyword to specify the alias within your include statement. - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:38:02"}
+{"level":"error","message":"500 - User is associated to Zone using an alias. You must use the 'as' keyword to specify the alias within your include statement. - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:45:42"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:51:34"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'role') - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:59:49"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'role') - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:03:11"}
+{"level":"info","message":"Nueva zona creada: Los Fundadores por usuario 29e2cf5d-22da-4f90-b446-beeec0266eeb","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:11:11"}
+{"level":"error","message":"500 - Cannot set headers after they are sent to the client - undefined - POST - undefined","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:38:09"}
+{"level":"error","message":"500 - notNull Violation: Leader.zoneId cannot be null - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:39:37"}
+{"level":"error","message":"500 - notNull Violation: Leader.zoneId cannot be null - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:40:17"}
+{"level":"info","message":"Nueva zona creada: 12 de octubre por usuario 741cb91b-682d-4245-978f-827faec95aba","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:44:10"}
+{"level":"info","message":"Nueva zona creada: los fundadores por usuario 741cb91b-682d-4245-978f-827faec95aba","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:45:48"}
+{"level":"info","message":"Nueva zona creada: villa fuentes por usuario 741cb91b-682d-4245-978f-827faec95aba","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:46:35"}
+{"level":"error","message":"500 - notNull Violation: Leader.zoneId cannot be null - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:47:02"}
+{"level":"error","message":"500 - no existe la columna «meta_votos_zona» - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 23:14:00"}
+{"level":"error","message":"500 - no existe la columna «meta_votos_zona» - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 23:14:56"}
+{"level":"info","message":"Nueva zona creada: los cocos por usuario 741cb91b-682d-4245-978f-827faec95aba","service":"politicapp360-pro-api","timestamp":"2025-11-14 00:45:44"}
+{"level":"info","message":"Nueva zona creada: los cocos por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-14 13:18:42"}
+{"level":"info","message":"Nueva zona creada: Don Alberto por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 17:57:33"}
+{"level":"info","message":"Nueva zona creada: Dangond por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:02:19"}
+{"level":"info","message":"Nueva zona creada: Candelaria Sur por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:06:07"}
+{"level":"info","message":"Nueva zona creada: Mareigua por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:06:24"}
+{"level":"info","message":"Nueva zona creada: Francisco de Paula por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:06:41"}
+{"level":"info","message":"Nueva zona creada: Nuevo Milenio por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:06:51"}
+{"level":"info","message":"Nueva zona creada: La Esperanza por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:07:11"}
+{"level":"info","message":"Nueva zona creada: San Martin por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:07:25"}
+{"level":"info","message":"Nueva zona creada: Sicarare por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:07:36"}
+{"level":"info","message":"Nueva zona creada: Garupal por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 19:24:45"}

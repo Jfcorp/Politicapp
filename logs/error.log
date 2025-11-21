@@ -1,0 +1,20 @@
+{"level":"error","message":"500 - no existe la columna gerente.first_name - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:10:30"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:15:11"}
+{"level":"error","message":"500 - no existe la columna Zone.meta_votos - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:28:59"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:46:26"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 16:46:47"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 20:16:10"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 20:25:16"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 20:30:49"}
+{"level":"error","message":"500 - User is associated to Zone using an alias. You must use the 'as' keyword to specify the alias within your include statement. - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:34:16"}
+{"level":"error","message":"500 - User is associated to Zone using an alias. You must use the 'as' keyword to specify the alias within your include statement. - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:38:02"}
+{"level":"error","message":"500 - User is associated to Zone using an alias. You must use the 'as' keyword to specify the alias within your include statement. - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:45:42"}
+{"level":"error","message":"500 - no existe la columna gerente.nombre - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:51:34"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'role') - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 21:59:49"}
+{"level":"error","message":"500 - Cannot read properties of null (reading 'role') - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:03:11"}
+{"level":"error","message":"500 - Cannot set headers after they are sent to the client - undefined - POST - undefined","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:38:09"}
+{"level":"error","message":"500 - notNull Violation: Leader.zoneId cannot be null - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:39:37"}
+{"level":"error","message":"500 - notNull Violation: Leader.zoneId cannot be null - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:40:17"}
+{"level":"error","message":"500 - notNull Violation: Leader.zoneId cannot be null - undefined - POST - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 22:47:02"}
+{"level":"error","message":"500 - no existe la columna «meta_votos_zona» - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 23:14:00"}
+{"level":"error","message":"500 - no existe la columna «meta_votos_zona» - undefined - GET - ::ffff:127.0.0.1","service":"politicapp360-pro-api","timestamp":"2025-11-13 23:14:56"}

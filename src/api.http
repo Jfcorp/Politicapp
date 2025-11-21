@@ -1,0 +1,73 @@
+### Pagina principla de la api
+GET http://localhost:3000/
+
+### Prueba de registro (Crear primer usuario admin)
+POST http://localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Jonathan Manzano",
+  "email": "superadmin@politicapp360.com",
+  "password": "admin123",
+  "role": "Admin"
+}
+
+### Prueba de login
+POST http://localhost:3000/api/v1/auth/login
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjFiMWFhLWJlMTgtNDU3OC05ZGEzLTkxMjUwNWZhY2QxYSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzA4OTAxOSwiZXhwIjoxNzY1NjgxMDE5fQ.7W4V4zqrV-PcjLwSccFOCNKI4eHaw5C-8qj_4GebcHk
+
+{
+  "email": "superadmin@politicapp360.com",
+  "password": "admin123"
+}
+
+### Crear zonas (POST)
+POST http://localhost:3000/api/v1/zones
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MWNiOTFiLTY4MmQtNDI0NS05NzhmLTgyN2ZhZWM5NWFiYSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzA5MTgzNCwiZXhwIjoxNzY1NjgzODM0fQ.tUTHvc1UUpZ0di-dNyAUvaoKhmnzOO1l3_XcQ6Au-ew
+
+{
+  "nombre": "villa fuentes",
+  "municipio": "Valledupar",
+  "meta_votos": 800
+}
+
+### Listar Zonas (GET)
+GET http://localhost:3000/api/v1/zones
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MWNiOTFiLTY4MmQtNDI0NS05NzhmLTgyN2ZhZWM5NWFiYSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzA5MTgzNCwiZXhwIjoxNzY1NjgzODM0fQ.tUTHvc1UUpZ0di-dNyAUvaoKhmnzOO1l3_XcQ6Au-ew
+
+### Crear elector en zona (POST)
+POST http://localhost:3000/api/v1/voters
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MWNiOTFiLTY4MmQtNDI0NS05NzhmLTgyN2ZhZWM5NWFiYSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzA5MTgzNCwiZXhwIjoxNzY1NjgzODM0fQ.tUTHvc1UUpZ0di-dNyAUvaoKhmnzOO1l3_XcQ6Au-ew
+
+{
+  "nombre": "balbino sanchez",
+  "cedula": "1065581553",
+  "telefono": "3004797341",
+  "tipo_voto": "duro",
+  "leaderId": "183fb83a-fc71-4fee-a252-e95a30377682"
+}
+
+### Crear un Lider
+POST http://localhost:3000/api/v1/leaders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MWNiOTFiLTY4MmQtNDI0NS05NzhmLTgyN2ZhZWM5NWFiYSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzA5MTU1MiwiZXhwIjoxNzY1NjgzNTUyfQ.XZSle9P5Ob83Ye7Cr6n9LAyN974HIpowHlmex3eAkz4
+
+{
+  "nombre": "Alirio Sarabia",
+  "meta_votos_lider": 20,
+  "zoneId": "551c2d43-72fb-402b-b50f-5868f85897f5"
+}
+
+### Obtener todos los lideres
+GET http://localhost:3000/api/v1/leaders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MWNiOTFiLTY4MmQtNDI0NS05NzhmLTgyN2ZhZWM5NWFiYSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzA5MTU1MiwiZXhwIjoxNzY1NjgzNTUyfQ.XZSle9P5Ob83Ye7Cr6n9LAyN974HIpowHlmex3eAkz4
+
+### Consultar Dashboard
+GET http://localhost:3000/api/v1/dashboard
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MWNiOTFiLTY4MmQtNDI0NS05NzhmLTgyN2ZhZWM5NWFiYSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzA5MTU1MiwiZXhwIjoxNzY1NjgzNTUyfQ.XZSle9P5Ob83Ye7Cr6n9LAyN974HIpowHlmex3eAkz4
