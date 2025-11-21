@@ -1,7 +1,7 @@
 // src/routes/zone.routes.js
 const express = require('express')
 const router = express.Router()
-const { createZone, getZones, assignManager } = require('../../controllers/zoneController')
+const { createZone, getZones, assignManager, deleteZone } = require('../../controllers/zoneController')
 const { protect } = require('../../middlewares/authMiddleware')
 const { authorize } = require('../../middlewares/roleMiddleware')
 
@@ -14,5 +14,8 @@ router.route('/')
 
 router.route('/:id/assign')
   .put(authorize('Admin', 'Coordinador'), assignManager) // Asignar gerente
+
+router.route('/:id')
+  .delete(authorize('Admin'), deleteZone) // Solo Admin elimina zonas
 
 module.exports = router

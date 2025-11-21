@@ -36,7 +36,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MWNiOTFiL
 ### Listar Zonas (GET)
 GET http://localhost:3000/api/v1/zones
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijc0MWNiOTFiLTY4MmQtNDI0NS05NzhmLTgyN2ZhZWM5NWFiYSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzA5MTgzNCwiZXhwIjoxNzY1NjgzODM0fQ.tUTHvc1UUpZ0di-dNyAUvaoKhmnzOO1l3_XcQ6Au-ew
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJlYzM4MmEzLWFjMGUtNGExZC04NzgyLWE2ZTg3ODBjMzQxOSIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTc2MzcyOTk5MSwiZXhwIjoxNzY2MzIxOTkxfQ.seWstKZLrLZaKMzvG2ESYdg-xSifqmlBfG50wB57xRI
 
 ### Crear elector en zona (POST)
 POST http://localhost:3000/api/v1/voters

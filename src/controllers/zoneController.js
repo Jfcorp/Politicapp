@@ -72,7 +72,24 @@ const assignManager = async (req, res, next) => {
   }
 }
 
-module.exports = { createZone, getZones, assignManager }
+// @desc    Eliminar una zona
+// @route   DELETE /api/v1/zones/:id
+const deleteZone = async (req, res, next) => {
+  const { id } = req.params
+  try {
+    const zone = await Zone.findByPk(id)
+    if (!zone) {
+      return res.status(404).json({ message: 'Zona no encontrada' })
+    }
+
+    await zone.destroy()
+    res.json({ message: 'Zona eliminada correctamente' })
+  } catch (error) {
+    next(error)
+  }
+}
+
+module.exports = { createZone, getZones, assignManager, deleteZone }
 
 // // src/controllers/zoneController.js
 // const Zone = require('../models/zoneModel')
