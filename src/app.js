@@ -4,7 +4,9 @@ const errorHandler = require('./middlewares/errorMiddleware')
 const app = express()
 
 // Middlewares
-app.use(cors()) // Permitir peticiones del frontend (Vercel) [cite: 49, 209]
+app.use(cors({
+  origin: 'https://politicapp-frontend.vercel.app/'
+})) // Permitir peticiones del frontend (Vercel) [cite: 49, 209]
 app.use(express.json()) // Parsear JSON
 app.use(express.urlencoded({ extended: true }))
 
