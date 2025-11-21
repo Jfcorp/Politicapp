@@ -49,3 +49,6 @@
 {"level":"info","message":"Nueva zona creada: EL PARAMO por usuario 589256b9-4db7-4be7-8536-db80aa9a1f87","service":"politicapp360-pro-api","timestamp":"2025-11-21 10:35:40"}
 {"level":"info","message":"Nueva zona creada: CONJUNTO CERRADO LA FONTANA por usuario 589256b9-4db7-4be7-8536-db80aa9a1f87","service":"politicapp360-pro-api","timestamp":"2025-11-21 10:35:52"}
 {"level":"info","message":"Nueva zona creada: LOPERENA por usuario 589256b9-4db7-4be7-8536-db80aa9a1f87","service":"politicapp360-pro-api","timestamp":"2025-11-21 10:43:30"}
+{"level":"error","message":"500 - no existe la columna Voter.email - undefined - GET - ::1","service":"politicapp360-pro-api","timestamp":"2025-11-21 13:20:38"}
+{"level":"error","message":"500 - no existe la columna «email» - undefined - POST - ::1","service":"politicapp360-pro-api","timestamp":"2025-11-21 13:21:59"}
+{"level":"error","message":"500 - Validation error: Validation isEmail on email failed - undefined - POST - ::1","service":"politicapp360-pro-api","timestamp":"2025-11-21 13:31:11"}

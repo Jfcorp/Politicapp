@@ -9,7 +9,7 @@ router.use(protect)
 
 router.route('/')
   .get(getLeaders) // Ver la red (Dashboard)
-  .post(authorize('Admin', 'Coordinador'), createLeader) // Solo jerarquía alta crea líderes
+  .post(authorize('Admin', 'Coordinador', 'Digitador'), createLeader) // Solo jerarquía alta crea líderes
 
 router.route('/:id')
   .put(authorize('Admin', 'Coordinador'), updateLeader) // Actualizar líder

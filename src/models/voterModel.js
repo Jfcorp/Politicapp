@@ -1,4 +1,3 @@
-// /src/models/Voter.js
 const { DataTypes } = require('sequelize')
 const sequelize = require('../config/database')
 
@@ -8,35 +7,66 @@ const Voter = sequelize.define('Voter', {
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true
   },
-  nombre: { // [cite: 12]
+  // --- CAMPOS DE IDENTIFICACIÓN ---
+  cedula: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false
+  },
+  nombre: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  cedula: { // [cite: 12]
+  // --- CAMPOS DE CONTACTO Y PERFIL ---
+  telefono: {
+    type: DataTypes.STRING
+  },
+  email: {
     type: DataTypes.STRING,
-    unique: true // Regla de negocio: No duplicado [cite: 161]
+    validate: { isEmail: true }
   },
-  telefono: { // [cite: 12]
+  fecha_nacimiento: {
+    type: DataTypes.DATEONLY
+  },
+  oficio: {
     type: DataTypes.STRING
   },
-  direccion: { // [cite: 12]
+  profesion: {
     type: DataTypes.STRING
   },
-  tipo_voto: { // Clasificación clave [cite: 13]
-    type: DataTypes.ENUM('duro', 'blando', 'posible') // [cite: 13, 496, 497, 498]
+  // --- UBICACIÓN ---
+  direccion: {
+    type: DataTypes.STRING
   },
-  estado_fidelizacion: { //
-    type: DataTypes.INTEGER, // (ej. 1 a 5 estrellas como en el mockup [cite: 92])
-    defaultValue: 0
+  barrio: {
+    type: DataTypes.STRING
+  },
+  // --- CAMPAÑA ---
+  tipo_voto: {
+    type: DataTypes.ENUM('duro', 'blando', 'posible'),
+    defaultValue: 'posible'
+  },
+  estado_fidelizacion: {
+    type: DataTypes.INTEGER,
+    defaultValue: 1
+  },
+  // --- RELACIONES ---
+  zoneId: {
+    type: DataTypes.UUID,
+    allowNull: true
   },
   leaderId: {
     type: DataTypes.UUID,
     allowNull: true
   },
-  zoneId: {
+  // Auditoría: Quién lo digitó
+  registeredBy: {
     type: DataTypes.UUID,
     allowNull: true
   }
+}, {
+  tableName: 'Voters',
+  timestamps: true
 })
 
 module.exports = Voter

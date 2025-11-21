@@ -2,13 +2,14 @@
 const Voter = require('../models/voterModel')
 const ContactHistory = require('../models/contactHistoryModel')
 const Zone = require('../models/zoneModel')
+const Leader = require('../models/leaderModel')
 const { Op } = require('sequelize')
 
 // @desc    Registrar un nuevo elector (Base de Datos de Fidelización)
 // @route   POST /api/v1/voters
 // @access  Private (Coordinador, Digitador, Gerente de Zona)
 const createVoter = async (req, res, next) => {
-  const { nombre, cedula, telefono, direccion, zoneId, leaderId, tipo_voto, notas_iniciales } = req.body
+  const { nombre, cedula, telefono, email, barrio, fecha_nacimiento, oficio, profesion, direccion, zonaId, leaderId, tipo_voto, notas_iniciales } = req.body
 
   try {
     // 1. Verificar si el elector ya existe (Evitar duplicados por cédula)
@@ -24,11 +25,18 @@ const createVoter = async (req, res, next) => {
       nombre,
       cedula,
       telefono,
+      email,
       direccion,
-      zoneId, // Vinculación geográfica [cite: 860]
+      barrio,
+      fecha_nacimiento,
+      oficio,
+      notas_iniciales,
+      profesion,
+      zoneId: zonaId, // Puede venir null si se usa la logica de autoo-crear zona (igual que en lideres)
       leaderId,
       tipo_voto, // Segmentación: 'duro', 'blando', 'posible'
-      estado_fidelizacion: 1 // Inicia con nivel bajo/neutro
+      estado_fidelizacion: 1, // Inicia con nivel bajo/neutro
+      registeredBy: req.user.id // Guardamos qué digitador lo ingresó
     })
 
     // 3. Si hay notas iniciales, crear el primer registro en el historial
@@ -45,6 +53,7 @@ const createVoter = async (req, res, next) => {
   } catch (error) {
     // console.error(error)
     // res.status(500).json({ message: 'Error al registrar elector' })
+    console.error('Error creating voter:', error)
     next(error)
   }
 }
@@ -52,7 +61,7 @@ const createVoter = async (req, res, next) => {
 // @desc    Obtener electores con filtros (Targeting)
 // @route   GET /api/v1/voters
 // @access  Private
-const getVoters = async (req, res) => {
+const getVoters = async (req, res, next) => {
   // Extracción de query params para filtros avanzados [cite: 987]
   const { zoneId, tipo_voto, search, page = 1, limit = 50 } = req.query
   const offset = (page - 1) * limit
@@ -60,8 +69,8 @@ const getVoters = async (req, res) => {
   // Construcción dinámica del filtro (WHERE)
   const whereClause = {}
 
-  if (zoneId) whereClause.zoneId = zoneId
-  if (tipo_voto) whereClause.tipo_voto = tipo_voto // Filtrar por segmento [cite: 862]
+  if (zoneId && zoneId !== 'todas') whereClause.zoneId = zoneId
+  if (tipo_voto && tipo_voto !== 'todos') whereClause.tipo_voto = tipo_voto
 
   // Búsqueda por nombre o cédula (Op.iLike es case-insensitive en Postgres)
   if (search) {
@@ -78,7 +87,8 @@ const getVoters = async (req, res) => {
       offset: parseInt(offset),
       order: [['createdAt', 'DESC']], // Los más recientes primero
       include: [
-        { model: Zone, attributes: ['nombre'] } // Incluir nombre de la zona
+        { model: Zone, attributes: ['nombre', 'numero_comuna'] }, // Incluir nombre de la zona
+        { model: Leader, as: 'lider', attributes: ['nombre'] }
       ]
     })
 
@@ -89,8 +99,7 @@ const getVoters = async (req, res) => {
       electores: rows
     })
   } catch (error) {
-    console.error(error)
-    res.status(500).json({ message: 'Error al obtener electores' })
+    next(error)
   }
 }
 
