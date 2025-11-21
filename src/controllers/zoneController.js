@@ -67,6 +67,7 @@ const getZones = async (req, res, next) => {
 
       return {
         ...zoneData,
+        numero_comuna: zone.numero_comuna,
         gerente: zoneData.gerente, // Ahora sí enviamos el objeto gerente
         registrados: votersCount,
         avance_porcentaje: `${avance}%`

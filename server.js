@@ -16,7 +16,7 @@ async function main () {
 
     // 2. Sincronizar modelos con la DB
     // force: false evita borrar los datos existentes. Usar 'alter: true' para cambios leves en dev.
-    await sequelize.sync({ alter: true })
+    await sequelize.sync()
     console.log('✅ Base de datos recreada (Columnas actualizadas).')
 
     // 3. Iniciar el servidor Express
