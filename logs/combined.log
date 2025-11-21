@@ -34,3 +34,14 @@
 {"level":"info","message":"Nueva zona creada: San Martin por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:07:25"}
 {"level":"info","message":"Nueva zona creada: Sicarare por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 18:07:36"}
 {"level":"info","message":"Nueva zona creada: Garupal por usuario e7ba27ad-4871-4a82-bab6-182159b77267","service":"politicapp360-pro-api","timestamp":"2025-11-15 19:24:45"}
+{"level":"error","message":"500 - notNull Violation: Zone.numero_comuna cannot be null - undefined - POST - ::1","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:01:17"}
+{"level":"info","message":"Nueva zona creada: Los cocos por usuario bec382a3-ac0e-4a1d-8782-a6e8780c3419","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:08:21"}
+{"level":"error","message":"500 - notNull Violation: Zone.numero_comuna cannot be null - undefined - POST - ::1","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:30:23"}
+{"level":"error","message":"500 - notNull Violation: Zone.numero_comuna cannot be null - undefined - POST - ::1","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:44:26"}
+{"level":"info","message":"Gerente Jonathan Manzano asignado a zona 9bf78b52-09ff-475d-ac88-6fb9855506c3","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:44:57"}
+{"level":"error","message":"500 - notNull Violation: Zone.numero_comuna cannot be null - undefined - POST - ::1","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:45:27"}
+{"level":"error","message":"500 - notNull Violation: Zone.numero_comuna cannot be null - undefined - POST - ::1","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:47:15"}
+{"level":"info","message":"Gerente Jonathan Manzano asignado a zona 9bf78b52-09ff-475d-ac88-6fb9855506c3","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:49:45"}
+{"level":"info","message":"Nueva zona creada: URB. MAYALES por usuario bec382a3-ac0e-4a1d-8782-a6e8780c3419","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:57:39"}
+{"level":"info","message":"Nueva zona creada: EL OASIS por usuario bec382a3-ac0e-4a1d-8782-a6e8780c3419","service":"politicapp360-pro-api","timestamp":"2025-11-21 08:58:19"}
+{"level":"info","message":"Nueva zona creada: ALTOS DEL VALLE por usuario bec382a3-ac0e-4a1d-8782-a6e8780c3419","service":"politicapp360-pro-api","timestamp":"2025-11-21 09:02:39"}

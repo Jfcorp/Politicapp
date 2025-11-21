@@ -7,6 +7,7 @@ const voterRoutes = require('./voterRoutes')
 const zoneRoutes = require('./zoneRoutes')
 const leaderRoutes = require('./leaderRoutes')
 const dashboardRoutes = require('./dashboardRoutes')
+const userRoutes = require('./userRoutes')
 
 // Definición de rutas base
 router.use('/auth', authRoutes) // Acceso: /api/v1/auth
@@ -20,5 +21,8 @@ router.use('/leaders', leaderRoutes) // Acceso: /api/v1/leaders
 
 // Rutas para Dashboard
 router.use('/dashboard', dashboardRoutes) // Acceso: /api/v1/dashboard
+
+// Rutas para usuarios
+router.use('/users', userRoutes) // Acceso: /api/v1/users
 
 module.exports = router

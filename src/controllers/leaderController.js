@@ -6,7 +6,20 @@ const Voter = require('../models/voterModel')
 // @desc    Crear un nuevo Líder (Compromiso)
 // @route   POST /api/v1/leaders
 const createLeader = async (req, res, next) => {
-  const { nombre, telefono, direccion, meta_votos, zoneId } = req.body
+  // Extraccion completa de datos del formulario
+  const {
+    cedula,
+    nombre,
+    telefono,
+    email,
+    direccion,
+    barrio,
+    fecha_nacimiento,
+    oficio,
+    profesion,
+    meta_votos,
+    zoneId
+  } = req.body
 
   try {
     // Validación: Verificar que la zona exista
@@ -18,15 +31,24 @@ const createLeader = async (req, res, next) => {
     }
 
     const leader = await Leader.create({
+      cedula,
       nombre,
       telefono,
+      email,
       direccion,
+      barrio,
+      fecha_nacimiento,
+      oficio,
+      profesion,
       meta_votos,
-      zoneId
+      zoneId // Vinculación del líder a una zona geográfica
     })
-
     res.status(201).json(leader)
   } catch (error) {
+    // Manejo de errores de validacion (ej: Cedula duplicada)
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      return res.status(400).json({ message: 'Ya existe un líder registrado con esa cédula.' })
+    }
     next(error)
   }
 }
@@ -43,7 +65,7 @@ const getLeaders = async (req, res, next) => {
       include: [
         {
           model: Zone,
-          attributes: ['nombre'] // Para ver a qué zona pertenece
+          attributes: ['nombre', 'numero_comuna'] // Para ver a qué zona pertenece
         }
       ]
     })
@@ -63,6 +85,7 @@ const getLeaders = async (req, res, next) => {
       return {
         ...leaderData,
         zona_nombre: leader.Zone ? leader.Zone.nombre : 'Sin Zona',
+        numero_comuna: leader.Zone ? leader.Zone.numero_comuna : null,
         votos_reales: votosReales,
         efectividad_porcentaje: `${efectividad}%`
       }
